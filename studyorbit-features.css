@@ -1,0 +1,303 @@
+/* StudyOrbit IIT v4 additions. Existing styling and chapter controls remain intact. */
+.orbit-section{border:1px solid #cba75b77;background:linear-gradient(145deg,#15223adf,#10172cef)}
+.orbit-section>h2{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0}
+.orbit-section>h2:after{content:'⌄';font-size:24px;color:#e2c789}
+.orbit-section.closed>h2:after{content:'›'}
+.orbit-section.closed>.orbit-content,.orbit-section.closed>:not(h2){display:none!important}
+.orbit-content{padding-top:12px}
+.orbit-drawer{border:1px solid #7d7897a0;background:#121d33;border-radius:13px;margin:11px 0;overflow:hidden}
+.orbit-drawer>summary{padding:12px 13px;cursor:pointer;background:linear-gradient(105deg,#253352,#28253f);color:#f0e2bb;font-weight:650}
+.orbit-inside{padding:13px}
+.orbit-record{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #65738a4d;padding:9px 0;color:#d7e5f8;flex-wrap:wrap}
+.orbit-record button{padding:6px 9px}
+.orbit-lock{margin:9px 0}.orbit-check{display:block;padding:5px;color:#dce7f5}
+.orbit-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}
+.orbit-graph{background:#0c172a;border:1px solid #566988;border-radius:12px;padding:10px;margin:12px 0;overflow:hidden}
+.orbit-graph-title{color:#e9f2ff;font-size:14px;font-weight:700;margin:0 0 7px}
+.orbit-graph-tools{display:flex;gap:9px;align-items:center;justify-content:flex-end;color:#a8bcd6;font-size:12px;margin-bottom:4px}
+.orbit-graph-tools button{padding:2px 9px;min-height:30px}
+.orbit-graph-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+.orbit-graph canvas{display:block;height:230px;max-width:none;min-width:100%}
+.orbit-legend{display:flex;flex-wrap:wrap;gap:13px;font-size:12px;padding-top:5px}
+#questionBankSection>.orbit-new-form,#dailyLogSection>.orbit-new-form{margin-top:14px}
+#orbLeaveSection{margin-top:0}
+#orbRevisionSection{border-color:#c6a3f5a0}
+#orbTestingSection{border-color:#e6b76da0}
+#orbAnalysisSection{border-color:#6abed0a0}
+@media(max-width:520px){.orbit-inside{padding:10px}.orbit-graph{padding:7px}.orbit-metrics{gap:5px}}
+
+/* V5: polished accordion and calm premium jewel-glass accents */
+.orbit-section,.accordion-section{border-color:#a79ac278!important;background:linear-gradient(135deg,rgba(23,30,55,.97),rgba(12,21,40,.96))!important;box-shadow:0 9px 28px #01071399,inset 0 1px #ffffff1b!important}
+.orbit-section>h2,.accordion-section>h2,.accordion-section>.qb-title-row{min-height:44px;cursor:pointer}
+.orbit-section>h2:after,.accordion-section>h2:after,.accordion-section>.qb-title-row:after,.orbit-drawer>summary:before{content:'»'!important;font:700 23px/1 Georgia,serif!important;color:#efcf88!important;transform:none!important;text-shadow:0 0 10px #c8a1ff50}
+.orbit-section>h2:after,.accordion-section>h2:after,.accordion-section>.qb-title-row:after{margin-left:auto;transition:transform .18s ease!important}
+.orbit-section:not(.closed)>h2:after,.accordion-section:not(.collapsed)>h2:after,.accordion-section:not(.collapsed)>.qb-title-row:after{transform:rotate(90deg)!important}
+.orbit-drawer>summary{display:flex;align-items:center;gap:9px;list-style:none;background:linear-gradient(100deg,#2a3151,#292340 72%,#3b2c3d);border-bottom:1px solid #d3b87526}
+.orbit-drawer>summary::-webkit-details-marker{display:none}
+.orbit-drawer>summary:before{display:inline-block;flex:none;transition:transform .18s}
+.orbit-drawer[open]>summary:before{transform:rotate(90deg)!important}
+.orbit-subject-instruction{border:1px solid #e9c77e80;background:linear-gradient(100deg,#4b3c2666,#282646);color:#ffe7a9!important;border-radius:11px;padding:10px 13px;font-weight:700;letter-spacing:.25px;margin:15px 0 10px}
+.orbit-lock .note{border:1px solid #e3bf7390;background:#3b2e273f;color:#f7dfb0!important}
+#orbRevisionSection{border-color:#bc9df59c!important}#orbTestingSection{border-color:#e6bb779c!important}#orbAnalysisSection{border-color:#8cbedb9c!important}
+@media(prefers-reduced-motion:reduce){.orbit-section>h2:after,.orbit-drawer>summary:before{transition:none!important}}
+
+/* V7.0 analysis tables */
+.orbit-table-scroll{overflow-x:auto;max-width:100%;margin:10px 0 18px}.orbit-data-table{border-collapse:collapse;width:100%;min-width:490px;font-size:13px}.orbit-data-table th,.orbit-data-table td{padding:10px 9px;text-align:left;border-bottom:1px solid #ffffff30;white-space:nowrap}.orbit-data-table th{background:#253d5b;color:#e7f2ff}.orbit-data-table tbody tr:nth-child(even){background:#ffffff0b}
+
+/* V7.2 compact entry and chart range */
+.orbit-daily-table{min-width:0!important;table-layout:fixed}.orbit-daily-table th:first-child,.orbit-daily-table td:first-child{width:65%}.orbit-daily-table input{width:100%;max-width:115px;padding:7px;box-sizing:border-box}.orbit-range-modes{display:flex;gap:8px;margin:6px 0}.orbit-range-modes button{padding:5px 14px;min-height:30px}.orbit-range-modes .selected{border-color:#66d9c6;background:#205254;color:white}.orbit-graph-scroll{scrollbar-width:thin}
+
+/* V7.3 visual refinements */
+.orbit-graph-scroll{position:relative;min-height:290px}.orbit-graph-scroll canvas{height:290px}.orbit-point-tip{position:absolute;left:8px;top:8px;z-index:5;display:none;width:max-content;max-width:90%;padding:7px 11px;border-radius:9px;background:#172b42;color:#fff;border:1px solid #8bd8ec;box-shadow:0 2px 12px #0009;font-size:12px;pointer-events:none}.orbit-edit-total{padding:4px 11px;margin-left:9px;font-size:12px}.orbit-graph-title{font-weight:700}.orbit-axis-label{display:flex;flex-wrap:wrap;gap:6px;justify-content:space-between}
+
+/* S7.4.11: Shared table-form layout for Daily Log, Integrated Question Bank and Testing. */
+.orbit-form-table-scroll{margin:10px 0 14px}
+.orbit-form-table{min-width:0!important;table-layout:fixed;width:100%}
+.orbit-form-table th{width:50%;white-space:normal;vertical-align:middle}
+.orbit-form-table td{width:50%;white-space:normal;vertical-align:middle}
+.orbit-form-table th label{display:block;margin:0;color:inherit;font-weight:700;line-height:1.35}
+.orbit-form-table input,.orbit-form-table select{display:block;box-sizing:border-box;width:100%;min-width:0;max-width:100%;margin:0;padding:9px 8px;border-radius:8px}
+.orbit-form-table .field{margin:0}
+.orbit-test-subject-table th:first-child{width:33.3333%}
+.orbit-test-subject-table td{width:33.3333%}
+.orbit-test-subject-table input{padding:8px 5px}
+@media(max-width:520px){.orbit-form-table{font-size:12px}.orbit-form-table th,.orbit-form-table td{padding:8px 6px}.orbit-form-table th,.orbit-form-table td{width:50%}.orbit-test-subject-table th:first-child,.orbit-test-subject-table td{width:33.3333%}}
+.orbit-form-table textarea{display:block;box-sizing:border-box;width:100%;min-width:0;max-width:100%;min-height:76px;margin:0;padding:9px 8px;border-radius:8px;resize:vertical}
+.orbit-form-table output{display:block;font-weight:700;padding:9px 8px}
+.orbit-daily-entry-table th,.orbit-daily-entry-table td{white-space:normal}
+
+/* S7.4.12 Daily Log: compact text fields with a centered landscape editor. */
+.orbit-daily-entry-table thead th{background:#253d5b;color:#e7f2ff;font-weight:800;padding:12px 9px;border-bottom:2px solid #667b98}
+.orbit-daily-entry-table .orbit-daily-total-row th,.orbit-daily-entry-table .orbit-daily-total-row td{background:#253d5b;color:#f1f6ff;font-weight:800;border-top:2px solid #7389a7}
+.orbit-daily-entry-table input{max-width:100%!important}
+.orbit-text-open{display:block;width:100%;min-height:38px;padding:8px 6px;border-radius:8px;border:1px solid #68748c;background:#111e34;color:#dce8fb;font-size:12px;line-height:1.25}
+.orbit-form-table .orbit-text-value{min-height:0;height:0;padding:0;border:0;opacity:0;position:absolute;pointer-events:none}
+.orbit-text-modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:3vw;background:rgba(3,8,20,.12);backdrop-filter:none}
+.orbit-text-modal.is-open{display:flex}
+.orbit-text-modal-card{position:relative;width:94vw;max-width:720px;height:28vh;min-height:150px;max-height:36vh;overflow:auto;box-sizing:border-box;padding:15px 14px 12px;border:1px solid #6f83a5;border-radius:16px;background:linear-gradient(145deg,rgba(27,42,69,.97),rgba(16,26,46,.97));box-shadow:0 10px 34px #0007}
+.orbit-text-modal-card h3{margin:2px 44px 8px 0;color:#eaf2ff;font-size:16px}
+.orbit-text-modal-card textarea{display:block;box-sizing:border-box;width:100%;height:13vh;min-height:70px;max-height:18vh;resize:vertical;padding:10px;border:1px solid #687895;border-radius:10px;background:#0d182b;color:#f2f6ff;font-size:15px;line-height:1.4}
+.orbit-text-modal-close{position:absolute;top:10px;right:10px;width:38px;height:38px;min-height:38px;padding:0;border-radius:50%;border:1px solid #a6b5cf;background:#263653;color:#fff;font-size:27px;line-height:1;display:grid;place-items:center}
+@media(min-width:600px){.orbit-text-modal-card{width:70vw;height:28vh;min-height:190px}.orbit-text-modal-card textarea{height:14vh;min-height:90px}}
+
+/* S7.6: compact graph controls, graph-data modal and responsive test-entry columns. */
+.orbit-legend-item{border:0!important;background:transparent!important;padding:0!important;min-height:24px!important;font-size:12px!important;cursor:pointer!important;box-shadow:none!important;text-shadow:none!important}
+.orbit-open-table{display:block;margin:8px auto 2px;padding:6px 12px;min-height:32px;font-size:12px}
+.orbit-data-modal{position:fixed;inset:0;z-index:11000;display:none;align-items:center;justify-content:center;padding:3vw;background:rgba(2,7,18,.78);backdrop-filter:blur(3px)}
+.orbit-data-modal.is-open{display:flex}
+.orbit-data-modal-card{position:relative;width:94vw;height:68vh;max-height:760px;min-height:260px;overflow:auto;box-sizing:border-box;padding:18px 13px 14px;border:1px solid #7285a4;border-radius:16px;background:linear-gradient(145deg,#1b2a45,#101a2e);box-shadow:0 12px 42px #0009}
+.orbit-data-modal-card h3{margin:3px 48px 12px 0;color:#eaf2ff;font-size:16px}
+.orbit-data-modal-close{position:absolute;top:9px;right:9px;width:38px;height:38px;min-height:38px;padding:0;border-radius:50%;border:1px solid #a6b5cf;background:#263653;color:#fff;font-size:27px;line-height:1;display:grid;place-items:center}
+.orbit-test-subject-table input{width:100%;min-width:0;box-sizing:border-box}
+@media(min-width:650px){.orbit-data-modal-card{width:78vw;padding:20px}}
+
+/* S7.8 NOTE divider: app-native font, normal weight, red glowing rectangular edge. */
+.orbit-managing-note{position:relative;box-sizing:border-box;width:calc(100% - 36px);max-width:640px;margin:16px auto 14px;padding:15px 10px 9px;border:2px solid #ff394d;border-radius:4px;background:linear-gradient(135deg,rgba(23,30,55,.97),rgba(12,21,40,.96));box-shadow:0 0 5px #ff394d,0 0 11px #ff394d77,inset 0 0 8px #ff394d1e;text-align:center;font-family:inherit;font-size:1em;font-weight:400;line-height:1.35;color:#ffd84a;}
+.orbit-managing-note-label{position:absolute;top:0;left:10px;transform:translateY(-55%);padding:0 6px;background:#151e35;color:#ff4659;font-family:inherit;font-size:.72em;font-weight:400;line-height:1.2;text-shadow:0 0 6px #ff394d99;white-space:nowrap;}
+.orbit-managing-note-red{color:#ff4659;font-weight:400;}
+@media(max-width:520px){.orbit-managing-note{width:calc(100% - 28px);max-width:520px;padding:14px 8px 8px;font-size:.96em;}}
+
+/* S7.9: test-type-specific fixed fields, separated saved-test lists, and graph category drawers. */
+.orbit-test-list-heading{margin:16px 0 7px;padding:9px 11px;border-left:3px solid #e9c77e;border-radius:5px;background:linear-gradient(100deg,#253352,#28253f);color:#f0e2bb;font-size:15px}
+.orbit-test-analysis-categories{margin-top:12px}
+.orbit-test-analysis-drawer{margin:10px 0}
+.orbit-test-analysis-drawer>.orbit-inside{padding:8px 10px}
+.orbit-test-analysis-drawer .orbit-graph{margin:10px 0}
+
+/* S7.9 focused Analysis category drawers. */
+.orbit-analysis-category{margin:12px 0;border-color:#8c7dde88;background:linear-gradient(140deg,#171d38,#111a30)}
+.orbit-analysis-category>summary{background:linear-gradient(100deg,#352b61,#253553 72%,#3b2c48);color:#f0e5ff;font-weight:750;font-size:14px}
+.orbit-analysis-category>.orbit-inside{padding:7px 10px 10px}
+.orbit-analysis-category .orbit-drawer{margin:9px 0}
+
+
+/* S7.9.2: focused section workspace and Testing & Analysis landing/drawers. */
+.orbit-focus-nav{display:none;position:sticky;top:0;z-index:1000;justify-content:flex-start;align-items:center;padding:6px 0 9px;background:linear-gradient(180deg,#0c1424f7,#0c1424ed 82%,transparent);backdrop-filter:blur(8px)}
+.orbit-focus-nav.is-visible{display:flex}
+.orbit-focus-nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-width:62px;padding:0 8px 3px;border:0;background:transparent;color:#e6edf9}
+.orbit-focus-x{display:grid;place-items:center;width:38px;height:38px;border:1px solid #8da1c1;border-radius:50%;background:#263653;color:#fff;font-size:27px;line-height:1}
+.orbit-focus-back-label{font-size:10px;font-weight:700;line-height:1.2}
+main.orbit-focus-mode> :not(#orbitFocusNav):not(.orbit-focused){display:none!important}
+main.orbit-focus-mode>section.orbit-focused{display:block!important;width:100%;max-width:none;min-height:calc(100vh - 80px);margin:0 auto;padding-top:10px;box-sizing:border-box}
+main.orbit-focus-mode>section.orbit-focused>h2,main.orbit-focus-mode>section.orbit-focused>.qb-title-row{position:sticky;top:58px;z-index:900;background:linear-gradient(115deg,#17263bf7,#111b30f7);backdrop-filter:blur(8px);padding:10px 4px!important;margin:0 0 12px!important;border-bottom:1px solid #d3b87545;scroll-margin-top:60px}
+body.orbit-focus-active .photo-credit{display:none!important}
+.orb-test-home{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:6px 0 14px}
+.orb-test-home-option{display:flex;flex-direction:column;gap:7px;align-items:flex-start;justify-content:center;text-align:left;min-height:94px;padding:14px 12px;border:1px solid #8d9bb9a6;border-radius:14px;background:linear-gradient(145deg,#263653,#1a263e);color:#f2f6ff;box-shadow:0 7px 20px #02071355}
+.orb-test-home-option strong{font-size:15px}.orb-test-home-option span{font-size:11px;line-height:1.35;color:#c1cde2}
+.orb-test-home[hidden],.orb-test-panel[hidden],.orb-test-select-drawer[hidden]{display:none!important}
+.orb-test-back{margin:2px 0 10px;padding:7px 11px;min-height:34px;font-size:12px}
+.orb-test-panel>h3{margin:4px 0 12px;color:#f0e2bb}
+.orb-test-select-drawer{margin:12px 0;padding:12px;border:1px solid #a99a76;border-radius:13px;background:#0f1b30;box-shadow:0 8px 22px #02071377}
+.orb-test-select-drawer h3{margin:0 0 10px;font-size:15px;color:#f0e2bb}
+.orb-test-select-drawer .orbit-check{display:flex;gap:9px;align-items:flex-start;margin:8px 0;padding:7px 8px;border-radius:8px;background:#ffffff08}
+@media(max-width:560px){.orb-test-home{grid-template-columns:1fr;gap:8px}.orb-test-home-option{min-height:64px;padding:11px 12px}.orb-test-home-option span{font-size:12px}main.orbit-focus-mode>section.orbit-focused{padding-left:0;padding-right:0}}
+
+
+/* S7.9.3: focused navigation, clean section re-entry, and mobile field-label clarity. */
+.orbit-focus-nav{justify-content:flex-end!important;align-items:center!important;min-height:72px;padding:5px 4px 8px!important;background:linear-gradient(180deg,#071020fa 0%,#0b172bf0 84%,#0b172b00 100%)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.orbit-focus-nav button{min-width:72px!important;gap:3px!important;padding:0 2px 3px!important}
+.orbit-focus-x{width:49px!important;height:49px!important;border:2px solid #71f4ff!important;border-radius:50%!important;background:linear-gradient(145deg,#173c58,#34245f)!important;color:#fff!important;font-size:31px!important;font-weight:800!important;box-shadow:0 0 0 2px #3eeaff26,0 0 13px #1dd9f7aa,0 0 25px #8c4dffaa!important;text-shadow:0 0 9px #ffffffb8}
+.orbit-focus-back-label{font-size:12px!important;font-weight:850!important;letter-spacing:.15px;color:#a8f8ff!important;text-shadow:0 0 8px #11d8f899}
+main.orbit-focus-mode>section.orbit-focused{overflow:visible!important;isolation:isolate;min-height:calc(100svh - 78px)!important;margin-top:0!important;padding-top:6px!important;animation:orbitFocusEnter .18s ease-out both}main.orbit-focus-mode>section.orbit-focused.orbit-focus-leaving{animation:orbitFocusExit .12s ease-in both!important}
+main.orbit-focus-mode>section.orbit-focused>h2,main.orbit-focus-mode>section.orbit-focused>.qb-title-row{position:sticky!important;top:78px!important;z-index:900!important;min-height:48px!important;display:flex!important;align-items:center!important;gap:10px!important;padding:10px 6px!important;margin:0 0 12px!important;border-radius:10px 10px 0 0!important;background:linear-gradient(110deg,#172b48f8,#17152ff7 62%,#282039f7)!important;border-bottom:1px solid #8deeff7a!important;box-shadow:0 7px 18px #0007,0 0 12px #31def71b!important;scroll-margin-top:86px!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+main.orbit-focus-mode>section.orbit-focused>.qb-title-row h2{min-width:0!important;flex:1 1 auto!important;overflow-wrap:anywhere;line-height:1.25!important}
+body.orbit-focus-active #todoFab{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+body.orbit-focus-active #todoOverlay{display:none!important}
+.orb-test-panel>.orb-test-back{display:flex!important;align-items:center;justify-content:center;float:none!important;width:max-content;max-width:100%;margin:0 0 10px auto!important;min-height:42px!important;padding:8px 13px!important;border:1px solid #65f3ff!important;border-radius:12px!important;background:linear-gradient(120deg,#152d4b,#342254)!important;color:#c9fbff!important;box-shadow:0 0 11px #1dd7f755,0 0 20px #ab63ff30!important}
+.orb-test-panel>h3{clear:both;padding-top:2px}
+/* Labels are deliberately distinct from input values across all tracker sections. */
+.field>label,.field label,.orbit-form-table th,.orbit-form-table th label,.orbit-data-table thead th{color:#fff0b8!important;font-size:13px!important;font-weight:800!important;line-height:1.4!important;letter-spacing:.18px!important;text-shadow:0 1px 5px #0008,0 0 8px #e6bc5b22!important}
+.field>label,.grid>.field>label{display:block;margin:0 0 7px!important;padding:2px 0!important}
+.orbit-form-table th{background:linear-gradient(110deg,#304b70,#263858)!important}
+.orbit-form-table th label{display:block;width:100%;overflow-wrap:anywhere}
+.orbit-form-table td input,.orbit-form-table td select,.orbit-form-table td textarea{min-height:40px}
+.orbit-drawer>summary,.drawerhead h3,.stage-menu>summary{font-weight:800!important;color:#f7e6b4!important;line-height:1.4!important}
+.orb-test-home-option strong{font-size:16px!important;color:#fff0ba!important;text-shadow:0 0 9px #d5aa4f25}
+.orb-test-home-option span{color:#e2eaf7!important;font-size:12px!important;line-height:1.45!important}
+@keyframes orbitFocusEnter{from{opacity:.78;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes orbitFocusExit{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(4px)}}
+@media(max-width:560px){.orbit-focus-nav{min-height:70px;padding-right:2px!important}.orbit-focus-x{width:47px!important;height:47px!important}main.orbit-focus-mode>section.orbit-focused{padding-left:0!important;padding-right:0!important}main.orbit-focus-mode>section.orbit-focused>h2,main.orbit-focus-mode>section.orbit-focused>.qb-title-row{top:76px!important;scroll-margin-top:83px!important}.field>label,.field label,.orbit-form-table th,.orbit-form-table th label{font-size:13px!important}.orb-test-panel>.orb-test-back{margin-right:0!important}}
+@media(prefers-reduced-motion:reduce){main.orbit-focus-mode>section.orbit-focused{animation:none!important}main.orbit-focus-mode>section.orbit-focused.orbit-focus-leaving{animation:none!important}}
+
+/* Keep focused mobile workspaces light: pause decoration and avoid costly live blur. */
+body.orbit-focus-active .symbol-rain .drop{animation-play-state:paused!important}
+.orbit-focus-nav,main.orbit-focus-mode>section.orbit-focused>h2,main.orbit-focus-mode>section.orbit-focused>.qb-title-row{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+
+/* S7.9.3-base correction: one non-overlapping sticky header row; instant navigation. */
+main.orbit-focus-mode>section.orbit-focused{padding-top:0!important;animation:none!important;transform:none!important;overflow:visible!important}
+main.orbit-focus-mode>section.orbit-focused.orbit-focus-leaving{animation:none!important}
+main.orbit-focus-mode>section.orbit-focused>.orbit-focus-heading-row{position:sticky!important;top:0!important;z-index:1000!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;box-sizing:border-box!important;width:100%!important;min-height:70px!important;margin:0 0 10px!important;padding:6px 8px!important;border-bottom:1px solid #71f4ff80!important;border-radius:0 0 12px 12px!important;background:linear-gradient(110deg,#0b172bf8,#172b48fa 55%,#211735fa)!important;box-shadow:0 5px 16px #0007,0 0 12px #31def722!important}
+main.orbit-focus-mode>section.orbit-focused>.orbit-focus-heading-row>h2,main.orbit-focus-mode>section.orbit-focused>.orbit-focus-heading-row>.qb-title-row{position:static!important;top:auto!important;flex:1 1 auto!important;min-width:0!important;min-height:0!important;margin:0!important;padding:6px 2px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;overflow-wrap:anywhere!important;line-height:1.22!important;scroll-margin-top:0!important}
+main.orbit-focus-mode>section.orbit-focused>.orbit-focus-heading-row>.qb-title-row h2{min-width:0!important;overflow-wrap:anywhere!important;line-height:1.22!important}
+main.orbit-focus-mode .orbit-focus-heading-row>#orbitBackHome{position:relative!important;inset:auto!important;display:flex!important;flex:0 0 64px!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:1px!important;width:64px!important;min-width:64px!important;min-height:58px!important;margin:0!important;padding:0!important;border:0!important;border-radius:10px!important;background:transparent!important;color:#eafaff!important;box-shadow:none!important;transition:none!important;z-index:1001!important}
+main.orbit-focus-mode .orbit-focus-heading-row>#orbitBackHome .orbit-focus-x{display:grid!important;place-items:center!important;width:46px!important;height:46px!important;border:2px solid #71f4ff!important;border-radius:50%!important;background:linear-gradient(145deg,#173c58,#34245f)!important;color:#fff!important;font-size:29px!important;font-weight:800!important;line-height:1!important;box-shadow:0 0 0 2px #3eeaff26,0 0 12px #1dd9f7aa,0 0 20px #8c4dffaa!important;text-shadow:0 0 8px #ffffffb8!important}
+main.orbit-focus-mode .orbit-focus-heading-row>#orbitBackHome .orbit-focus-back-label{display:block!important;font-size:10px!important;font-weight:850!important;line-height:1.1!important;letter-spacing:0!important;color:#a8f8ff!important;text-shadow:0 0 8px #11d8f899!important}
+#orbTestingSection .orb-test-back{position:sticky!important;top:74px!important;z-index:850!important;float:none!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;margin:0 0 10px!important;padding:10px 12px!important;min-height:42px!important;border:1px solid #57e8ff!important;border-radius:10px!important;background:linear-gradient(100deg,#142f4b,#282044)!important;color:#c8fbff!important;box-shadow:0 4px 12px #0005,0 0 10px #29dff733!important;transition:none!important}
+#orbTestingSection .orb-test-panel>h3{scroll-margin-top:122px!important}
+@media(max-width:560px){main.orbit-focus-mode>section.orbit-focused>.orbit-focus-heading-row{min-height:68px!important;padding:4px 5px!important;gap:4px!important}main.orbit-focus-mode .orbit-focus-heading-row>#orbitBackHome{flex-basis:58px!important;width:58px!important;min-width:58px!important;min-height:58px!important}main.orbit-focus-mode .orbit-focus-heading-row>#orbitBackHome .orbit-focus-x{width:42px!important;height:42px!important;font-size:27px!important}main.orbit-focus-mode .orbit-focus-heading-row>#orbitBackHome .orbit-focus-back-label{font-size:9px!important}#orbTestingSection .orb-test-back{top:72px!important}}
+
+
+/* C 1.1: responsive graph controls, modal selectors and explicit percentage values. */
+.orbit-study-summary-strip,.orbit-graph-summary-strip{margin-top:8px;margin-bottom:12px}
+.orbit-study-summary-strip .orbit-data-table,.orbit-graph-summary-strip .orbit-data-table{margin-top:0;font-size:12px}
+.orbit-study-summary-strip .orbit-data-table th,.orbit-study-summary-strip .orbit-data-table td,.orbit-graph-summary-strip .orbit-data-table th,.orbit-graph-summary-strip .orbit-data-table td{padding:7px 8px;white-space:nowrap}
+.orbit-study-summary-strip .orbit-data-table th,.orbit-graph-summary-strip .orbit-data-table th{font-size:11px}
+@media(max-width:560px){.orbit-study-summary-strip,.orbit-graph-summary-strip{max-width:100%;overflow-x:auto}}
+
+
+/* C 1.1: full-page list panels and graph interaction controls. */
+.orbit-graph-controls{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:nowrap;width:100%;margin:8px auto 2px}
+.orbit-graph-controls button{flex:1 1 0;max-width:230px;min-width:0;box-sizing:border-box;min-height:36px;padding:6px 10px;font-size:12px;white-space:nowrap}
+.orbit-graph-controls .orbit-open-table{display:block;margin:0}
+.orbit-show-marking{border:1px solid #d4b66c!important;border-radius:9px!important;background:linear-gradient(135deg,#273653,#312644)!important;color:#fff0bb!important}
+.orbit-page-modal{position:fixed;inset:0;z-index:12000;display:flex;align-items:center;justify-content:center;padding:12px;box-sizing:border-box;background:rgba(2,7,18,.84);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.orbit-page-modal[hidden]{display:none!important}
+.orbit-page-panel{position:relative;display:flex;flex-direction:column;box-sizing:border-box;width:min(94vw,720px);height:min(86vh,780px);min-height:260px;max-height:90vh;padding:16px 13px 12px;overflow:hidden;border:1px solid #e2c575;border-radius:16px;background:linear-gradient(150deg,#16233b,#0b1227);color:#edf5ff;box-shadow:0 0 26px #cda85a45}
+.orbit-page-panel h3{flex:0 0 auto;margin:2px 80px 12px 0;color:#f4e0ad;font-size:16px;line-height:1.3}
+.orbit-page-close-wrap{position:absolute;top:8px;right:8px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:44px;color:#d7e8f4;font-size:10px;line-height:1.1}
+.orbit-page-close{display:grid;place-items:center;width:46px;height:46px;min-height:46px;padding:0;border:1.5px solid #71f4ff;border-radius:50%;background:linear-gradient(145deg,#173c58,#34245f);color:#fff;font-size:29px;font-weight:800;line-height:1;box-shadow:0 0 0 2px #3eeaff1c,0 0 12px #1dd9f777}
+.orbit-page-scroll{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;padding:2px 1px 10px}
+.orbit-page-scroll .orbit-check{display:flex;align-items:flex-start;gap:10px;margin:7px 0;padding:11px 9px;border:1px solid #ffffff12;border-radius:9px;background:#ffffff08;color:#eef4ff;line-height:1.45}
+.orbit-page-scroll .orbit-check input{flex:0 0 auto;margin-top:3px;transform:scale(1.15)}
+.orbit-page-footer{flex:0 0 auto;display:flex;justify-content:flex-end;align-items:center;margin-top:7px;padding:11px 2px 0;border-top:1px solid #d9c07866}
+.orbit-page-footer button{min-width:118px;min-height:42px}
+.orbit-marking-options{display:flex;flex-direction:column;gap:7px}
+.orbit-marking-option{display:grid;grid-template-columns:14px minmax(0,1fr) 24px;align-items:center;gap:10px;padding:10px 9px;border:1px solid #ffffff16;border-radius:9px;background:#ffffff08;color:#eff5ff}
+.orbit-marking-swatch{display:block;width:12px;height:12px;border-radius:50%;box-shadow:0 0 0 1px #ffffff55}
+.orbit-marking-option input{width:18px;height:18px;justify-self:center}
+.orbit-page-table .orbit-data-table{margin:0;width:100%}
+.orbit-page-table .orbit-data-table th,.orbit-page-table .orbit-data-table td{padding:10px 8px;white-space:normal}
+.orbit-data-table th.orbit-contribution-header{width:108px;min-width:98px;max-width:115px;text-align:center;white-space:normal;line-height:1.25;overflow-wrap:anywhere;vertical-align:middle}
+.orbit-data-table td.orbit-contribution-cell{text-align:center;vertical-align:middle;white-space:normal;overflow-wrap:anywhere}
+.orbit-data-table tr.orbit-overall-row td{background:rgba(250,211,100,.09)}
+.orbit-data-table tr.orbit-overall-row td.orbit-overall-cell{background:rgba(250,211,100,.19);color:#fff0b8;font-weight:800}
+.orb-test-select-modal .orbit-page-panel{width:min(94vw,600px)}
+.orbit-outof-values{display:flex;justify-content:flex-end;margin:4px 0 10px}
+.orbit-know-more{min-height:34px;padding:6px 14px;font-size:12px}
+/* Increase all tracker modal/list close circles by approximately 1.2x; section Back buttons are untouched. */
+.orbit-data-modal-close,.orbit-text-modal-close{width:46px;height:46px;min-height:46px;font-size:31px}
+.orb-completed-close{width:36px;height:36px;font-size:24px}
+@media(max-width:520px){.orbit-graph-controls{gap:7px}.orbit-graph-controls button{font-size:11px;padding:6px 5px}.orbit-page-panel{width:96vw;height:88vh;padding:14px 10px 10px}.orbit-page-panel h3{font-size:15px}.orbit-page-close{width:42px;height:42px;min-height:42px;font-size:27px}.orbit-data-table th.orbit-contribution-header{width:92px;min-width:88px;max-width:98px}}
+
+body.orbit-page-modal-open{overflow:hidden!important}
+
+
+/* C1.3O baseline: compact, non-blocking graph readings and point-picker overlays. */
+.orbit-graph{position:relative}
+.orbit-graph-controls{position:relative;z-index:2}
+.orbit-graph-controls button{min-width:0}
+.orbit-readings-popup,.orbit-point-chooser{position:absolute;z-index:80;box-sizing:border-box;pointer-events:auto;border:1px solid #e9c977;border-radius:12px;background:linear-gradient(145deg,#1b2a45f7,#101a2ef7);color:#edf5ff;box-shadow:0 8px 24px #000b,0 0 16px #cda85a35;padding:7px;width:min(82vw,380px);max-height:17vh;min-height:96px;overflow:auto;overscroll-behavior:contain}
+.orbit-readings-popup{top:68px;right:7px}
+.orbit-readings-head,.orbit-point-chooser-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 5px;color:#f4e0ad;font-size:12px;line-height:1.2}
+.orbit-readings-close,.orbit-point-chooser-close{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;min-height:28px;padding:0;border:1px solid #9cabc2;border-radius:50%;background:#263653;color:#fff;font-size:21px;line-height:1}
+.orbit-marking-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 6px}
+.orbit-marking-option{grid-template-columns:9px minmax(0,1fr) 17px;gap:5px;padding:5px 5px;border-radius:7px;font-size:10px;line-height:1.15;min-width:0}
+.orbit-marking-swatch{width:8px;height:8px}
+.orbit-marking-option input{width:14px;height:14px;margin:0}
+.orbit-readings-footer{display:flex;justify-content:flex-end;padding-top:5px;margin-top:4px;border-top:1px solid #d9c07845}
+.orbit-readings-footer button{min-height:28px;min-width:70px;padding:4px 12px;font-size:11px}
+.orbit-point-chooser{width:min(82%,360px);max-height:15vh;min-height:72px;padding:6px}
+.orbit-point-chooser-list{display:flex;flex-direction:column;gap:4px}
+.orbit-point-choice{display:block;width:100%;min-height:27px;padding:5px 7px;text-align:left;border-left:3px solid var(--point-color,#e9c977);border-radius:6px;background:#ffffff0c;color:#eef5ff;font-size:10px;line-height:1.25;overflow-wrap:anywhere}
+.orbit-data-modal-card{display:flex;flex-direction:column;overflow:hidden}
+.orbit-data-modal-card h3{flex:0 0 auto;padding-right:52px}
+.orbit-data-modal-body{flex:1 1 auto;min-height:0;overflow:hidden;overscroll-behavior:contain}
+.orbit-data-modal-body>.orbit-table-scroll{height:100%;margin:0;max-height:100%;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.orbit-data-modal .orbit-data-table th,.orbit-data-modal .orbit-data-table td{padding:6px 7px;line-height:1.25;vertical-align:middle}
+.orbit-data-modal .orbit-data-table{margin:0}
+.orb-test-select-modal .orbit-page-panel{width:min(84.24vw,356px);height:min(58.32vh,464px);min-height:min(264px,44vh);max-height:80vh;border-color:#e9c977;background:linear-gradient(150deg,#16233b,#0b1227);box-shadow:0 0 25px #cda85a50}
+.orb-test-select-modal{background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;pointer-events:none!important}
+.orb-test-select-modal .orbit-page-panel{pointer-events:auto!important}
+.orb-test-select-modal .orbit-page-footer{justify-content:flex-end}
+.orb-test-select-modal .orbit-page-close-wrap{color:#d7e8f4}
+@media(max-width:520px){.orbit-readings-popup{top:64px;right:5px;width:min(82vw,330px);max-height:18vh;padding:6px}.orbit-marking-options{gap:4px}.orbit-marking-option{font-size:9px;padding:4px}.orbit-point-chooser{max-height:16vh}.orb-test-select-modal .orbit-page-panel{width:84.24vw;height:58.32vh;min-height:min(264px,44vh);padding:14px 10px 10px}.orbit-data-modal-card{padding:13px 9px 10px}}
+
+/* C1.3O baseline: data-table view is smaller while its heading and close control remain fixed. */
+.orbit-data-modal-card{width:89.3vw;height:64.6vh;max-height:722px}
+@media(min-width:650px){.orbit-data-modal-card{width:74vw}}
+@media(max-width:520px){.orbit-data-modal-card{width:89.3vw;height:64.6vh;max-height:80vh;padding:13px 9px 10px}}
+.orbit-readings-popup{max-height:14vh;min-height:82px;width:min(78vw,350px)}
+.orbit-point-chooser{width:min(78%,320px);max-height:12vh;min-height:68px}
+@media(max-width:520px){.orbit-readings-popup{width:min(78vw,320px);max-height:15vh;min-height:78px}.orbit-point-chooser{max-height:12vh;min-height:68px}}
+
+/* C 2.0: numeric-only graph readings; compact panels with fixed controls. */
+.orbit-readings-popup,.orbit-point-chooser{
+  display:flex;flex-direction:column;overflow:hidden;box-sizing:border-box;
+}
+.orbit-readings-head,.orbit-point-chooser-head{
+  position:relative;top:auto;z-index:2;flex:0 0 auto;min-height:29px;
+  padding:2px 2px 6px;margin:0 0 5px;border-bottom:1px solid #d9c07845;
+  background:linear-gradient(145deg,#1b2a45,#101a2e);color:#f4e0ad;
+}
+.orbit-marking-options,.orbit-point-chooser-list{
+  flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;
+  overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+}
+.orbit-readings-footer{flex:0 0 auto;position:relative;bottom:auto;z-index:2;background:linear-gradient(145deg,#1b2a45,#101a2e)}
+/* Around 12% more panel area than the previous C1.3O compact panel, with narrower width and more vertical room. */
+.orbit-readings-popup{width:min(72vw,320px);max-height:17vh;min-height:90px;padding:7px;}
+.orbit-point-chooser{width:min(72%,295px);max-height:14.5vh;min-height:78px;padding:6px;}
+.orbit-point-chooser-list{display:flex;flex-direction:column;gap:3px;}
+.orbit-point-choice{flex:0 0 auto;min-height:26px;padding:4px 6px;font-size:10px;}
+/* Match the Completed Chapters navy/gold panel; only the table body scrolls, never its title or close control. */
+.orbit-data-modal-card{
+  width:86vw;height:59vh;max-height:680px;min-height:240px;
+  border:1px solid #e9c977;border-radius:16px;
+  background:linear-gradient(150deg,#16233b,#0b1227);
+  box-shadow:0 0 25px #cda85a50;overflow:hidden;
+}
+.orbit-data-modal-card h3{flex:0 0 auto;position:relative;margin:3px 48px 8px 0;color:#f4e0ad;}
+.orbit-data-modal-close{z-index:5;border-color:#e9c977;background:#263653;color:#fff0bb;}
+.orbit-data-modal-body{flex:1 1 auto;min-height:0;overflow:hidden;}
+.orbit-data-modal-body>.orbit-table-scroll{height:100%;max-height:100%;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
+.orbit-data-modal .orbit-data-table{margin:0;width:100%;}
+.orbit-data-modal .orbit-data-table th,.orbit-data-modal .orbit-data-table td{
+  padding:3px 6px;line-height:1.15;vertical-align:middle;
+}
+.orbit-data-modal .orbit-data-table thead th{position:sticky;top:0;z-index:3;background:#253d5b;}
+@media(min-width:650px){.orbit-data-modal-card{width:71vw;height:59.5vh;}}
+@media(max-width:520px){
+  .orbit-readings-popup{width:min(72vw,300px);max-height:18vh;min-height:90px;padding:6px;}
+  .orbit-point-chooser{width:min(72%,280px);max-height:14.5vh;min-height:78px;}
+  .orbit-data-modal-card{width:86vw;height:59vh;max-height:76vh;padding:13px 9px 10px;}
+}
