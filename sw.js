@@ -1,5 +1,5 @@
 /* StudyOrbit IIT C 2.0 — update-aware PWA cache. */
-const CACHE_NAME = 'studyorbit-tracker-c21-professional-ui-1';
+const CACHE_NAME = 'studyorbit-tracker-c22-app-shell-1';
 const CACHE_PREFIX = 'studyorbit-tracker-';
 const CORE = [
   './',
@@ -9,7 +9,8 @@ const CORE = [
   './studyorbit-features.css?v=c20',
   './studyorbit-todo.js?v=c20',
   './studyorbit-todo.css?v=c20',
-  './studyorbit-professional.css?v=c21'
+  './studyorbit-app-shell.js?v=c22',
+  './studyorbit-app-shell.css?v=c22'
 ];
 
 self.addEventListener('install', event => {
